@@ -34,5 +34,6 @@ The [SensorArray](https://github.com/Robotics2020/RobEx02_sensor-controller/tree
 ## Usage
 
 * To run the whole program (thus both the nodes) just run `roslaunch sensor_controller_pkg sensor_controller.launch`
+  * If you want to specify the frequency at which the joints' positions are reads, run `roslaunch sensor_controller_pkg sensor_controller.launch rate:=<rate>`. The default value is 0.2 Hz (once every 5 seconds).
 * To just run the publisher (encoders) run `rosrun sensor_controller_pkg publisher_node`
 * To just run the subscriber (controllers) run `rosrun sensor_controller_pkg subscriber_node`
