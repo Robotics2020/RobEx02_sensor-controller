@@ -13,7 +13,7 @@ N = 6  # Number of joints
 def main():
     rospy.init_node("Publisher")
     pub = rospy.Publisher("sensors", SensorArray, queue_size=1)
-    rate = rospy.Rate(1/10)
+    rate = rospy.Rate(1/5)
 
     sensors = SensorArray()
 
