@@ -1,7 +1,4 @@
 <launch>
-
 	<node name="encoders" pkg="sensor_controller_pkg" type="publisher_node" />
-	
 	<node name="controller" pkg="sensor_controller_pkg" type="subscriber_node" output="screen" />
-
 </launch>
