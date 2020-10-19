@@ -4,16 +4,17 @@ import rospy
 from geometry_msgs.msg import Point
 from sensor_controller_pkg_msgs.msg import SensorArray
 
+import sys
 from random import random
 
 
 N = 6  # Number of joints
 
 
-def main():
+def main(hz: float):
     rospy.init_node("Publisher")
     pub = rospy.Publisher("sensors", SensorArray, queue_size=1)
-    rate = rospy.Rate(1/5)
+    rate = rospy.Rate(hz)
 
     sensors = SensorArray()
 
@@ -25,6 +26,7 @@ def main():
 
 if __name__ == "__main__":
     try:
-        main()
+        hz = float(sys.argv[1])
+        main(hz)
     except rospy.ROSInterruptException:
         pass
