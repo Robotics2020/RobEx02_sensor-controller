@@ -1,19 +1,30 @@
 #!/usr/bin/python3
 
 import rospy
-from sensor_controller_pkg_msgs.msg import Joint
 from geometry_msgs.msg import Point
+from sensor_controller_pkg_msgs.msg import SensorArray
+
+from random import random
+
+
+N = 6  # Number of joints
 
 
 def main():
-    rospy.init_node("Node")
-    joint = Joint()
-    joint.point = [
-        Point(x=1, y=2, z=3),
-        Point(x=11, y=22, z=33)
-    ]
-    rospy.loginfo(str(joint.point))
+    rospy.init_node("Publisher")
+    pub = rospy.Publisher("sensors", SensorArray, queue_size=1)
+    rate = rospy.Rate(1/10)
+
+    sensors = SensorArray()
+
+    while not rospy.is_shutdown():
+        sensors.points = [Point(x=random(), y=random(), z=random()) for _ in range(N)]
+        pub.publish(sensors)
+        rate.sleep()
 
 
 if __name__ == "__main__":
-    main()
+    try:
+        main()
+    except rospy.ROSInterruptException:
+        pass
