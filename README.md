@@ -8,7 +8,7 @@ The project consists in two packages:
 
 * [sensor_controller_pkg](https://github.com/Robotics2020/RobEx02_sensor-controller/tree/master/sensor_controller_pkg) contains:
   * The actual executable files for both publisher and subscriber nodes in the [src](https://github.com/Robotics2020/RobEx02_sensor-controller/tree/master/sensor_controller_pkg/src) subfolder.
-  * A [.launch file](https://github.com/Robotics2020/RobEx02_sensor-controller/tree/master/sensor_controller_pkg/launch/sensor_controller.launch) that wraps the executes of both the nodes.
+  * A [.launch file](https://github.com/Robotics2020/RobEx02_sensor-controller/tree/master/sensor_controller_pkg/launch/sensor_controller.launch) that wraps the execution of both the nodes.
 * [sensor_controller_pkg_msgs](https://github.com/Robotics2020/RobEx02_sensor-controller/tree/master/sensor_controller_pkg_msgs) contains the definition of the [SensorArray](https://github.com/Robotics2020/RobEx02_sensor-controller/tree/master/sensor_controller_pkg_msgs/msg/SensorArray.msg) message type
 
 ### Nodes
@@ -17,15 +17,15 @@ As said, the project is an implementation of two nodes in the publisher/subscrib
 
 #### Publisher Node
 
-The [publisher node](https://github.com/Robotics2020/RobEx02_sensor-controller/tree/master/sensor_controller_pkg/src/publisher_node/publisher_node) simulates a set of 6 sensors for encoder readings. Thus it sends periodically information about the position of 6 joints.
+The [publisher node](https://github.com/Robotics2020/RobEx02_sensor-controller/tree/master/sensor_controller_pkg/src/publisher_node/main.py) simulates a set of 6 sensors for encoder readings. Thus it sends periodically information about the position of 6 joints.
 
 #### Subscriber Node
 
-The [subscriber node](https://github.com/Robotics2020/RobEx02_sensor-controller/tree/master/sensor_controller_pkg/src/publisher_node) simulates a set of 6 controllers for the joints. It reads the information about the position of 6 joints and prints such readings to stdout.
+The [subscriber node](https://github.com/Robotics2020/RobEx02_sensor-controller/tree/master/sensor_controller_pkg/src/publisher_node/main.py) simulates a set of 6 controllers for the joints. It reads the information about the position of 6 joints and prints such readings to stdout.
 
 ### Messages
 
-The information about the posiition of 6 joints is yielded by the [SensorArray](https://github.com/Robotics2020/RobEx02_sensor-controller/tree/master/sensor_controller_pkg_msgs/msg/SensorArray.msg) message type.
+The information about the position of 6 joints is yielded by the [SensorArray](https://github.com/Robotics2020/RobEx02_sensor-controller/tree/master/sensor_controller_pkg_msgs/msg/SensorArray.msg) message type.
 
 #### SensorArray
 
