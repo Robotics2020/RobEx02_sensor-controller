@@ -21,7 +21,7 @@ The [publisher node](https://github.com/Robotics2020/RobEx02_sensor-controller/t
 
 #### Subscriber Node
 
-The [subscriber node](https://github.com/Robotics2020/RobEx02_sensor-controller/tree/master/sensor_controller_pkg/src/publisher_node/main.py) simulates a set of 6 controllers for the joints. It reads the information about the position of 6 joints and prints such readings to stdout.
+The [subscriber node](https://github.com/Robotics2020/RobEx02_sensor-controller/tree/master/sensor_controller_pkg/src/subscriber_node/main.py) simulates a set of 6 controllers for the joints. It reads the information about the position of 6 joints and prints such readings to stdout.
 
 ### Messages
 
