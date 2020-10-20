@@ -1,1 +1,1 @@
-geometry_msgs/Point[] points
+sensor_controller_pkg_msgs/Sensor[]     sensors
