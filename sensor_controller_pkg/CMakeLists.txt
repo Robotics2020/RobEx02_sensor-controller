@@ -9,9 +9,7 @@ project(sensor_controller_pkg)
 ## is used, also find other catkin packages
 find_package(catkin REQUIRED COMPONENTS
   rosconsole
-  roscpp
   rospy
-  std_msgs
 )
 
 ## System dependencies are found with CMake's conventions
@@ -106,7 +104,7 @@ find_package(catkin REQUIRED COMPONENTS
 catkin_package(
 #  INCLUDE_DIRS include
    LIBRARIES sensor_controller_pkg sensor_controller_pkg_msgs
-   CATKIN_DEPENDS rosconsole roscpp rospy
+   CATKIN_DEPENDS rosconsole rospy
 #  DEPENDS system_lib
 )
 
