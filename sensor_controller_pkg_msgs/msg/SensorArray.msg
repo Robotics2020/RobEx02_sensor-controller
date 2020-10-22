@@ -1,1 +1,1 @@
-sensor_controller_pkg_msgs/Sensor[]     sensors
+Sensor[]    sensors

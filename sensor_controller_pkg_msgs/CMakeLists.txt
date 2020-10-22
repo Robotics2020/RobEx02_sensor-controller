@@ -50,8 +50,8 @@ find_package(catkin REQUIRED COMPONENTS
 ## Generate messages in the 'msg' folder
 add_message_files(
   FILES
-  SensorArray.msg
   Sensor.msg
+  SensorArray.msg
 )
 
 ## Generate services in the 'srv' folder

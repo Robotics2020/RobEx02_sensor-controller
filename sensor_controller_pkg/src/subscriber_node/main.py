@@ -4,9 +4,10 @@ from sensor_controller_pkg_msgs.msg import SensorArray
 
 
 def on_sensor_array_received(sensor_array: SensorArray):
+    rospy.loginfo(len(sensor_array.sensors))
     rospy.loginfo(''.join([
-        f"\nPosition of joint #{i + 1}:\n"
-        f"{round(sensor.angle, 4)} rad.\n"
+        f"\nPosition of {'Revolute' if chr(sensor.joint_type) is 'R' else 'Prismatic'} joint #{i + 1}:\n"
+        f"{round(sensor.position, 4)}\n"
         f"with respect to axis {list(map(lambda c: round(c, 4), [sensor.axis.x, sensor.axis.y, sensor.axis.z]))}\n"
         f"------" for i, sensor in enumerate(sensor_array.sensors)
     ]))

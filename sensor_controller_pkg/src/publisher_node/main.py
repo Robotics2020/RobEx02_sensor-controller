@@ -11,7 +11,8 @@ from numpy.random import rand
 from numpy.linalg import norm
 
 
-N = 6  # Number of joints
+N = 6                       # Number of joints
+JOINT_TYPES = {'P', 'R'}    # Joints can be Prismatic ('P') or Revolute ('R')
 
 
 def random_unit_vector(d: int):
@@ -21,29 +22,40 @@ def random_unit_vector(d: int):
     return unravel(*v)
 
 
-def init_sensor_array() -> SensorArray:
-    sensor_array = SensorArray()
-    for _ in range(N):
-        x, y, z = random_unit_vector(3)
-        sensor_array.sensors.append(Sensor(angle=0.0, axis=Point(x=x, y=y, z=z)))
-    return sensor_array
+def init_sensor_array(joint_types: str) -> SensorArray:
+    return SensorArray(sensors=[Sensor(
+        joint_type=ord(joint_types[i]),
+        axis=[Point(x=x, y=y, z=z) for x, y, z in [random_unit_vector(3)]][0],
+        position=0.0
+    ) for i in range(N)])
 
 
-def main(hz: float):
+def main(joint_types: str, hz: float):
     rospy.init_node("Publisher")
     pub = rospy.Publisher("sensors", SensorArray, queue_size=1)
     rate = rospy.Rate(hz)
-    sensor_array = init_sensor_array()
+    sensor_array = init_sensor_array(joint_types)
     while not rospy.is_shutdown():
         for sensor in sensor_array.sensors:
-            sensor.angle = uniform(0, 2*pi)
+            sensor.position = uniform(0, 2*pi) if chr(sensor.joint_type) is 'R' else rand()
         pub.publish(sensor_array)
         rate.sleep()
 
 
 if __name__ == "__main__":
     try:
-        hz = float(sys.argv[1])
-        main(hz)
+        if len(sys.argv) != 2 + 3:
+            raise Exception("Bad parameters. Specify joint types and reading rate.")
+        
+        joint_types = str(sys.argv[1])
+        print(joint_types)
+        if set(joint_types).union(JOINT_TYPES) != JOINT_TYPES:
+            raise Exception("Bad joint types. Use only 'R' and 'P'.")
+        if len(joint_types) != N:
+            raise Exception("The number of joints must be 6.")
+        
+        hz = float(sys.argv[2])
+        
+        main(joint_types, hz)
     except rospy.ROSInterruptException:
         pass
