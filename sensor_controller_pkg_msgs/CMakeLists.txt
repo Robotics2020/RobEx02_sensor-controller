@@ -9,7 +9,6 @@ project(sensor_controller_pkg_msgs)
 ## is used, also find other catkin packages
 find_package(catkin REQUIRED COMPONENTS
   rosconsole
-  roscpp
   std_msgs
   geometry_msgs
   message_generation
@@ -108,7 +107,7 @@ generate_messages(
 catkin_package(
 #  INCLUDE_DIRS include
 #  LIBRARIES sensor_controller_pkg_msgs
-   CATKIN_DEPENDS rosconsole roscpp message_runtime
+   CATKIN_DEPENDS rosconsole message_runtime
 #  DEPENDS system_lib
 )
 
