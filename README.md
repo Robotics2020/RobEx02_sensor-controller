@@ -9,7 +9,7 @@ The project consists in two packages:
 * [sensor_controller_pkg](https://github.com/Robotics2020/RobEx02_sensor-controller/tree/master/sensor_controller_pkg) contains:
   * The actual executable files for both publisher and subscriber nodes in the [src](https://github.com/Robotics2020/RobEx02_sensor-controller/tree/master/sensor_controller_pkg/src) subfolder.
   * A [.launch file](https://github.com/Robotics2020/RobEx02_sensor-controller/tree/master/sensor_controller_pkg/launch/sensor_controller.launch) that wraps the execution of both the nodes.
-* [sensor_controller_pkg_msgs](https://github.com/Robotics2020/RobEx02_sensor-controller/tree/master/sensor_controller_pkg_msgs) contains the definition of the [SensorArray](https://github.com/Robotics2020/RobEx02_sensor-controller/tree/master/sensor_controller_pkg_msgs/msg/SensorArray.msg) message type
+* [sensor_controller_pkg_msgs](https://github.com/Robotics2020/RobEx02_sensor-controller/tree/master/sensor_controller_pkg_msgs) contains the definition of [SensorArray](https://github.com/Robotics2020/RobEx02_sensor-controller/tree/master/sensor_controller_pkg_msgs/msg/SensorArray.msg) and [Sensor](https://github.com/Robotics2020/RobEx02_sensor-controller/tree/master/sensor_controller_pkg_msgs/msg/Sensor.msg) message types
 
 ### Nodes
 
