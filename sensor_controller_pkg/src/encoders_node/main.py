@@ -31,7 +31,7 @@ def init_sensor_array(joint_types: str) -> SensorArray:
 
 
 def main(joint_types: str, hz: float):
-    rospy.init_node("Publisher")
+    rospy.init_node("Encoders")
     pub = rospy.Publisher("sensors", SensorArray, queue_size=1)
     rate = rospy.Rate(hz)
     sensor_array = init_sensor_array(joint_types)
@@ -48,7 +48,6 @@ if __name__ == "__main__":
             raise Exception("Bad parameters. Specify joint types and reading rate.")
         
         joint_types = str(sys.argv[1])
-        print(joint_types)
         if set(joint_types).union(JOINT_TYPES) != JOINT_TYPES:
             raise Exception("Bad joint types. Use only 'R' and 'P'.")
         if len(joint_types) != N:

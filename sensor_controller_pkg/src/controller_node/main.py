@@ -4,7 +4,6 @@ from sensor_controller_pkg_msgs.msg import SensorArray
 
 
 def on_sensor_array_received(sensor_array: SensorArray):
-    rospy.loginfo(len(sensor_array.sensors))
     rospy.loginfo(''.join([
         f"\nPosition of {'Revolute' if chr(sensor.joint_type) is 'R' else 'Prismatic'} joint #{i + 1}:\n"
         f"{round(sensor.position, 4)}\n"
@@ -14,7 +13,7 @@ def on_sensor_array_received(sensor_array: SensorArray):
 
 
 def main():
-    rospy.init_node("Subscriber")
+    rospy.init_node("Controller")
     rospy.Subscriber("sensors", SensorArray, on_sensor_array_received)
     rospy.spin()
 
