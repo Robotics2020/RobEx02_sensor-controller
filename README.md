@@ -1,6 +1,8 @@
 # RobEx02_sensor-controller
 
-Implement a publisher that simulates a set of sensors for encoder readings (position of 6 joints) and a subscriber that simulates a set of controllers that prints such readings to stdout
+Second exercise for Robotics course @UniSa. Academic Year 2020/2021.
+
+Implement a publisher that simulates a set of sensors for encoder readings (position of 6 joints) and a subscriber that simulates a set of controllers that prints such readings to stdout.
 
 ## Packages
 
