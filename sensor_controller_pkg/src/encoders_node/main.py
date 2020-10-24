@@ -32,7 +32,7 @@ def init_sensor_array(joint_types: str) -> SensorArray:
 
 def main(joint_types: str, hz: float):
     rospy.init_node("Encoders")
-    pub = rospy.Publisher("sensors", SensorArray, queue_size=1)
+    pub = rospy.Publisher(rospy.get_param("/sensor_controller_pkg/topic_name"), SensorArray, queue_size=1)
     rate = rospy.Rate(hz)
     sensor_array = init_sensor_array(joint_types)
     while not rospy.is_shutdown():

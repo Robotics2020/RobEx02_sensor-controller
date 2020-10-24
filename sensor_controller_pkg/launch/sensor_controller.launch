@@ -1,4 +1,6 @@
 <launch>
+	<param name="sensor_controller_pkg/topic_name" value="/sensors" />
+
 	<arg name="joint_types" default="RRRRRR" doc="The types of the joint. 'R' is for Revolute, 'P' is for Prismatic" />
 	<arg name="rate" default="0.2" doc="The frequency in Hz at which the controller publishes information about the position of the joints" />
 

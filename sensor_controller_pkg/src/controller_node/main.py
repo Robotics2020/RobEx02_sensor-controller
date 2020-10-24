@@ -14,7 +14,7 @@ def on_sensor_array_received(sensor_array: SensorArray):
 
 def main():
     rospy.init_node("Controller")
-    rospy.Subscriber("sensors", SensorArray, on_sensor_array_received)
+    rospy.Subscriber(rospy.get_param("/sensor_controller_pkg/topic_name"), SensorArray, on_sensor_array_received)
     rospy.spin()
 
 
